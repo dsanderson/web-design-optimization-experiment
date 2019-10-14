@@ -1,4 +1,4 @@
-import { UPDATE_SCATTERPLOT_CONTROLS, SELECT_POINT, SET_WEIGHT, UPDATE_GRID, FETCH_DESIGNS_SUCCESS } from '../actions';
+import { UPDATE_SCATTERPLOT_CONTROLS, SELECT_POINT, SET_WEIGHT, UPDATE_GRID, UPDATE_PARETO_VALUES, UPDATE_PARETO_SELECTED, FETCH_DESIGNS_SUCCESS } from '../actions';
 
 const updateScatterplotControls = (state, action) => {
     let newState = {...state};
@@ -29,6 +29,20 @@ const updateGrid = (state, action) => {
     return newState
 }
 
+const updateParetoValues = (state, action) => {
+    let newState = {...state};
+    const { key, value } = action;
+    newState.pareto[key] = value;
+    return newState
+}
+
+const updateParetoSelected = (state, action) => {
+    let newState = {...state};
+    const { value } = action;
+    newState.paretoSelected = value;
+    return newState
+}
+
 const fetchDesignsSuccess = (state, action) => {
     let newState = {...state};
     const { data } = action;
@@ -47,6 +61,10 @@ export default (state={}, action) => {
             return setWeight(state, action)
         case UPDATE_GRID:
             return updateGrid(state, action)
+        case UPDATE_PARETO_VALUES:
+            return updateParetoValues(state, action)
+        case UPDATE_PARETO_SELECTED:
+            return updateParetoSelected(state, action)
         case FETCH_DESIGNS_SUCCESS:
             return fetchDesignsSuccess(state, action)
         default:

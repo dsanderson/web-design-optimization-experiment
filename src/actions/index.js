@@ -2,6 +2,8 @@ export const UPDATE_SCATTERPLOT_CONTROLS = "UPDATE_SCATTERPLOT_CONTROLS";
 export const SELECT_POINT = "SELECT_POINT";
 export const SET_WEIGHT = "SET_WEIGHT";
 export const UPDATE_GRID = "UPDATE_GRID";
+export const UPDATE_PARETO_VALUES = "UPDATE_PARETO_VALUES";
+export const UPDATE_PARETO_SELECTED = "UPDATE_PARETO_SELECTED";
 export const FETCH_DESIGNS_THUNK = "FETCH_DESIGNS_THUNK";
 export const FETCH_DESIGNS_SUCCESS = "FETCH_DESIGNS_SUCCESS";
 
@@ -29,6 +31,17 @@ export const updateGrid = (key, value, min, max, points) => ({
     min: min,
     max: max,
     points: points
+})
+
+export const updateParetoValues = (key, value) => ({
+    type: UPDATE_PARETO_VALUES,
+    key: key,
+    value: value
+})
+
+export const updateParetoSelected = (value) => ({
+    type: UPDATE_PARETO_SELECTED,
+    value: value
 })
 
 export const fetchDesignsThunk = (state) => { return dispatch => {
