@@ -1,4 +1,4 @@
-import { UPDATE_SCATTERPLOT_CONTROLS, SELECT_POINT, SET_WEIGHT, UPDATE_GRID, UPDATE_PARETO_VALUES, UPDATE_PARETO_SELECTED, FETCH_DESIGNS_SUCCESS } from '../actions';
+import { UPDATE_SCATTERPLOT_CONTROLS, SELECT_POINT, SET_WEIGHT, UPDATE_GRID, UPDATE_PARETO_VALUES, UPDATE_PARETO_SELECTED, SET_DIRECT, FETCH_DESIGNS_SUCCESS } from '../actions';
 
 const updateScatterplotControls = (state, action) => {
     let newState = {...state};
@@ -43,6 +43,13 @@ const updateParetoSelected = (state, action) => {
     return newState
 }
 
+const setDirect = (state, action) => {
+    let newState = {...state};
+    const { key, value } = action;
+    newState.direct[key] = value;
+    return newState
+}
+
 const fetchDesignsSuccess = (state, action) => {
     let newState = {...state};
     const { data } = action;
@@ -67,6 +74,8 @@ export default (state={}, action) => {
             return updateParetoSelected(state, action)
         case FETCH_DESIGNS_SUCCESS:
             return fetchDesignsSuccess(state, action)
+        case SET_DIRECT:
+            return setDirect(state, action)
         default:
             return state
     }

@@ -10,6 +10,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import ConnectedPareto from './Pareto';
 import ConnectedOptimum from './Optimum';
 import ConnectedIGrid from './IGrid';
+import ConnectedDirect from './Direct';
 
 export class Node extends Component {
     renderType = () => {
@@ -23,6 +24,8 @@ export class Node extends Component {
                 return (<ConnectedOptimum></ConnectedOptimum>)
             case "#igrid":
                 return (<ConnectedIGrid></ConnectedIGrid>)
+            case "#direct":
+                return (<ConnectedDirect></ConnectedDirect>)
         }
     }
 

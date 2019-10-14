@@ -7,7 +7,8 @@ export default function generateStore() {
     data.weights = {"Width":0, "Height":0, "Operating Cost":0, "Throughput":0, "Capital Cost":0};
     data.pareto = [50, 50, 50];
     data.paretoSelected = 0;
-    data.paretoKeys = ["Operating Cost", "Throughput", "Capital Cost"]
+    data.paretoKeys = ["Operating Cost", "Throughput", "Capital Cost"];
+    data.direct = {"Width":50, "Height":50};
     data.axes = [0, 1];
     data.data = [{"Width":1.0, "Height":1.0, "Operating Cost":1.0, "Throughput":1.0, "Capital Cost":1.0}];
     const url = window.location.hash;
